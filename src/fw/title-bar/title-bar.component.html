@@ -1,4 +1,12 @@
-<div class="title-bar">
+<div *ngIf="!screenService.isLarge()" class="title-bar-small">
+    <i class="fa fa-bars"></i>
+    <div class="small-image-holder">
+        <img class="small-image" src="assets/logo.png" alt="Green Nations Logo">
+    </div>
+    <i class="fa fa-ellipsis-v"></i>
+</div>
+
+<div *ngIf="screenService.isLarge()" class="title-bar user-title-bar">
     <img src="assets/logo.png" alt="Green Nations Logo">
     <div class="menu-area">
         <fw-top-bar>
