@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuService } from '../services/menu.service';
+import { ScreenService } from '../services/screen.service';
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -10,7 +11,10 @@ import { MenuService } from '../services/menu.service';
 
 export class ContentComponent implements OnInit {
 
-    constructor(public menuService: MenuService) { }
+    constructor(
+        public menuService: MenuService,
+        public screenService: ScreenService
+    ) { }
 
     ngOnInit() { }
 }
