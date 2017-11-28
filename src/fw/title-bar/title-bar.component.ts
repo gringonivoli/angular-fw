@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ScreenService } from '../services/screen.service';
+import { MenuService } from '../services/menu.service';
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -10,7 +11,10 @@ import { ScreenService } from '../services/screen.service';
 
 export class TitleBarComponent implements OnInit {
 
-    constructor(public screenService: ScreenService) { }
+    constructor(
+        public screenService: ScreenService,
+        public menuService: MenuService
+    ) { }
 
     ngOnInit() { }
 }

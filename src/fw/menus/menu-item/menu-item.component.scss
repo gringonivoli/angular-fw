@@ -18,6 +18,14 @@
     width: auto;
 }
 
+:host(.vertical-menu) {
+    display: block;
+    margin-left: 0;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    color: #FFF;
+}
+
 span, i {
     pointer-events: none;
 }
@@ -34,8 +42,17 @@ span, i {
     &:hover {
         background-color: #dfd;
     }
+    &.vertical-menu {
+        padding: 6px 6px 6px 0;
+        &:hover {
+            background-color: green;
+        }
+    }
 }
 
 .router-link-active {
     background-color: #dfd;
+    &.vertical-menu {
+        background-color: green;
+    }
 }
