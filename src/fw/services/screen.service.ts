@@ -13,8 +13,7 @@ export class ScreenService {
 
     constructor() {
         try {
-            this.screenWidth = window.innerWidth;
-            this.screenHeight = window.innerHeight;
+            this.setDimensions();
             window.addEventListener('resize', (event) => this.onResize(event));
         } catch (error) {
 
@@ -26,8 +25,12 @@ export class ScreenService {
     }
 
     onResize($event): void {
+        this.setDimensions();
+        this.resizeSource.next();
+    }
+
+    private setDimensions(): void {
         this.screenWidth = window.innerWidth;
         this.screenHeight = window.innerHeight;
-        this.resizeSource.next();
     }
 }
