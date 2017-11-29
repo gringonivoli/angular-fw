@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FrameworkBodyComponent } from './framework-body/framework-body.component';
 import { TitleBarComponent } from './title-bar/title-bar.component';
@@ -19,7 +20,8 @@ import { PopupMenuComponent } from './menus/popup-menu/popup-menu.component';
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule
+        RouterModule,
+        BrowserAnimationsModule
     ],
     declarations: [
         FrameworkBodyComponent,

@@ -14,24 +14,24 @@ export let initialMenuItems: Array<MenuItem> = [
         submenu: [
             {
                 text: 'Select',
-                icon: 'glyphicon-expand',
+                icon: 'fa-expand',
                 route: null,
                 submenu: [
                     {
                         text: 'USA',
-                        icon: 'glyphicon-flag',
+                        icon: 'fa-flag',
                         route: 'country-detail/USA',
                         submenu: null
                     },
                     {
                         text: 'India',
-                        icon: 'glyphicon-flag',
+                        icon: 'fa-flag',
                         route: 'country-detail/India',
                         submenu: null
                     },
                     {
                         text: 'Switzerland',
-                        icon: 'glyphicon-flag',
+                        icon: 'fa-flag',
                         route: 'country-detail/Switzerland',
                         submenu: null
                     }
@@ -39,19 +39,19 @@ export let initialMenuItems: Array<MenuItem> = [
             },
             {
                 text: 'Top 3',
-                icon: 'glyphicon-flag',
+                icon: 'fa-flag',
                 route: 'country-list/3',
                 submenu: null
             },
             {
                 text: 'Top 10',
-                icon: 'glyphicon-flag',
+                icon: 'fa-flag',
                 route: 'country-list/10',
                 submenu: null
             },
             {
                 text: 'All',
-                icon: 'glyphicon-flag',
+                icon: 'fa-flag',
                 route: 'country-list/0',
                 submenu: null
             }
@@ -64,13 +64,13 @@ export let initialMenuItems: Array<MenuItem> = [
         submenu: [
             {
                 text: 'Country List',
-                icon: 'glyphicon-th-list',
+                icon: 'fa-th-list',
                 route: 'country-maint',
                 submenu: null
             },
             {
                 text: 'Settings',
-                icon: 'glyphicon-cog',
+                icon: 'fa-cog',
                 route: 'settings',
                 submenu: null
             }

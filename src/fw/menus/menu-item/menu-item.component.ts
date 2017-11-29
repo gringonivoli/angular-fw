@@ -1,11 +1,27 @@
-import { Component, OnInit, Input, HostBinding, HostListener } from '@angular/core';
+import {
+    Component, OnInit, Input, HostBinding, HostListener,
+    ElementRef, Renderer, trigger, transition, style,
+    animate
+} from '@angular/core';
 import { MenuItem, MenuService } from '../../services/menu.service';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
     // tslint:disable-next-line:component-selector
     selector: 'fw-menu-item',
     templateUrl: 'menu-item.component.html',
-    styleUrls: ['menu-item.component.scss']
+    styleUrls: ['menu-item.component.scss'],
+    animations: [
+        trigger('visibilityChanged', [
+            transition(':enter', [
+                style({ opacity: 0 }),
+                animate(250, style({ opacity: 1 }))
+            ]),
+            transition(':leave', [
+                animate(100, style({ opacity: 0 }))
+            ])
+        ])
+    ]
 })
 
 export class MenuItemComponent implements OnInit {
@@ -27,9 +43,41 @@ export class MenuItemComponent implements OnInit {
 
     popupTop = 34;
 
-    constructor(public menuService: MenuService) { }
+    constructor(
+        public menuService: MenuService,
+        private router: Router,
+        private elementRef: ElementRef,
+        private renderer: Renderer
+    ) { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.checkActiveRoute(this.router.url);
+        this.router.events
+            .subscribe((event) => {
+                if (event instanceof NavigationEnd) {
+                    this.checkActiveRoute(event.url);
+                }
+            });
+    }
+
+    @HostListener('click', ['$event'])
+    onclick(event): void {
+        event.stopPropagation();
+        if (this.item.submenu) {
+            if (this.menuService.isVertical) {
+                this.mouseInPopup = !this.mouseInPopup;
+            }
+        } else if (this.item.route) {
+            const newEvent = new MouseEvent('mouseleave', { bubbles: true });
+            this.renderer
+                .invokeElementMethod(this.elementRef.nativeElement, 'dispatchEvent', [newEvent]);
+            this.router.navigate([`/${this.item.route}`]);
+        }
+    }
+
+    checkActiveRoute(route: string): void {
+        this.isActiveRoute = (route === `/${this.item.route}`);
+    }
 
     onPopupMouseEnter(event): void {
         if (!this.menuService.isVertical) {
