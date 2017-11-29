@@ -71,7 +71,7 @@ export class MenuItemComponent implements OnInit {
             const newEvent = new MouseEvent('mouseleave', { bubbles: true });
             this.renderer
                 .invokeElementMethod(this.elementRef.nativeElement, 'dispatchEvent', [newEvent]);
-            this.router.navigate([`/${this.item.route}`]);
+            this.router.navigate([`/${this.item.route}`]).then(() => this.menuService.showingLeftSideMenu = false);
         }
     }
 
