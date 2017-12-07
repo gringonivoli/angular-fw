@@ -6,6 +6,7 @@ import { CountryListComponent } from './country-list/country-list.component';
 import { CountryDetailComponent } from './country-detail/country-detail.component';
 import { CountryMaintComponent } from './country-maint/country-maint.component';
 import { AuthenticatedUserComponent } from './authenticated-user/authenticated-user.component';
+import { SignInComponent } from '../fw/users/sign-in/sign-in.component';
 
 export const appRoutes: Routes = [
     { path: 'signin', component: SignInComponent },
