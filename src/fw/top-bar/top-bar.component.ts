@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FrameworkConfigService } from '../services/framework-config.service';
+import { UserApi } from '../users/user-api';
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -10,7 +11,14 @@ import { FrameworkConfigService } from '../services/framework-config.service';
 
 export class TopBarComponent implements OnInit {
 
-    constructor(public frameworkConfigService: FrameworkConfigService) { }
+    constructor(
+        public frameworkConfigService: FrameworkConfigService,
+        private userApi: UserApi
+    ) { }
 
     ngOnInit() { }
+
+    signOut(): void {
+        this.userApi.signOut();
+    }
 }
