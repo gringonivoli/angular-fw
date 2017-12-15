@@ -19,6 +19,7 @@ import { MenuItemComponent } from './menus/menu-item/menu-item.component';
 import { PopupMenuComponent } from './menus/popup-menu/popup-menu.component';
 import { SignInComponent } from './users/sign-in/sign-in.component';
 import { RegisterUserComponent } from './users/register-user/register-user.component';
+import { PanelComponent } from './panels/panel/panel.component';
 
 @NgModule({
     imports: [
@@ -39,7 +40,8 @@ import { RegisterUserComponent } from './users/register-user/register-user.compo
         MenuItemComponent,
         PopupMenuComponent,
         SignInComponent,
-        RegisterUserComponent
+        RegisterUserComponent,
+        PanelComponent
     ],
     providers: [
         FrameworkConfigService,
@@ -47,7 +49,8 @@ import { RegisterUserComponent } from './users/register-user/register-user.compo
         MenuService
     ],
     exports: [
-        FrameworkBodyComponent
+        FrameworkBodyComponent,
+        PanelComponent
     ]
 })
 export class FwModule { }
